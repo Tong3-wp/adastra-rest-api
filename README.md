@@ -28,7 +28,7 @@ Submission for Adastra – REST API assessment
 
     * Create a `.env` file in the root directory.
     * Add DATABASE_URL, SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES.
-    * Example at .env.example
+    * Example at `.env.example`
 
 5.  **Run the application:**
 
