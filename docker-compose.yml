@@ -1,0 +1,33 @@
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    restart: unless-stopped
+    environment:
+      DATABASE_URL: "postgresql://postgres:password@db:5432/mydb"
+      SECRET_KEY: "ksQfETHgOdnS2SgxoHWZSoJXUyg67XX22lYH0MxzOMw="
+      ALGORITHM: "HS256"
+      ACCESS_TOKEN_EXPIRE_MINUTES: 30
+    depends_on:
+      - db
+  nginx:
+      restart: unless-stopped
+      image: nginx
+      container_name: nginx
+      ports:
+        - "80:80"
+      volumes:
+        - ./nginx:/etc/nginx/user_conf.d:ro
+      depends_on:
+        - app
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: mydb
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data
