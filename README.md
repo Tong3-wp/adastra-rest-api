@@ -1,4 +1,4 @@
-# FastAPI API Project
+# FastAPI REST API Project
 
 Submission for Adastra – REST API assessment
 
