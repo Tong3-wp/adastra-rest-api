@@ -30,7 +30,13 @@ Submission for Adastra – REST API assessment
     * Add DATABASE_URL, SECRET_KEY, ALGORITHM, ACCESS_TOKEN_EXPIRE_MINUTES.
     * Example at `.env.example`
 
-5.  **Run the application:**
+5.  **Run the Database:**
+
+    ```bash
+    docker compose up db -d
+    ```
+
+6.  **Run the application:**
 
     ```bash
     uvicorn app.main:app --reload
@@ -38,7 +44,7 @@ Submission for Adastra – REST API assessment
 
     Visit http://localhost:8000/docs to view the API docs
 
-6.  **Run tests:**
+7.  **Run tests:**
 
     ```bash
     pytest --cov=app tests/
@@ -49,7 +55,7 @@ Submission for Adastra – REST API assessment
 1.  **Build the Docker image and run the Docker container:**
 
     ```bash
-    docker compose up --built -d 
+    docker compose up --build -d 
     ```
 
     Visit http://127.0.0.1:8000/docs to view the API docs
